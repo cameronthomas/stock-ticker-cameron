@@ -14,6 +14,7 @@ def find_min(stock_ticker_results, key):
     return min_value[key]
 
 
+### Another todo
 # TODO could I find a more efficient way to compute these values? This could be a problem with big data
 class TickerDataAnalyzer:
     def __init__(self):
@@ -46,6 +47,7 @@ class TickerDataAnalyzer:
         min_price = find_min(stock_ticker_results, self.min_price_key)
         return round(min_price, self.price_significant_figures)
 
+    ### Another todo
     # TODO verify if we calculated average price the right way
     def _find_avg_price(self, stock_ticker_results):
         total_price = 0

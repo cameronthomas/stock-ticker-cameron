@@ -18,12 +18,15 @@ def respond(status_code, res):
 
 def lambda_handler(event, context):
     ticker_client = TickerRequestClient()
-    report_generator = TickerDataAnalyzer()
+
+    ##### In the case of an error this doesn't actually get used. You could also instantiate the TickerDataAnalyzer
+    ##### down at the bottom where the report gets generated.
+    report_generator = TickerDataAnalyzer() 
 
     ticker_results = ticker_client.get_ticker_info(event)
     if ticker_results.json()['status'] == "ERROR":
         return respond(ticker_results.status_code, ticker_results.text)
-    # TODO test
+    ####### Do you still want to leave in this todos?
     # TODO handle non existent ticker ie ATLA
     # TODO handle wrong headers
     results = ticker_results.json()['results']
