@@ -3,6 +3,7 @@ import unittest
 from backend import lambda_function
 
 
+### Did you want the todos in this file?
 class MyTestCase(unittest.TestCase):
     def test_lambda_handler_success(self):
         result = lambda_function.lambda_handler(self.success_lambda_event, {})
@@ -37,6 +38,8 @@ class MyTestCase(unittest.TestCase):
                                                                   'startDate': '2020-01-01',
                                                                   'endDate': '2020-12-31'},
                                         }
+
+    ### The style on this diction seems I different than the ones above. Try to be consistent with whatever style you choose
     wrong_headers_lambda_event = {'httpMethod': 'GET',
                                   'queryStringParameters': {
                                       'a': 'a',

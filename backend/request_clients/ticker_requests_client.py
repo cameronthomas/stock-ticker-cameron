@@ -5,6 +5,8 @@ def get_query_param(event, query_param_name):
     query_parameters = event['queryStringParameters']
     if query_param_name in query_parameters:
         param = query_parameters[query_param_name]
+
+        ## Looks like you want to add more validation here
         # Add other validation. The query params come from the frontend and are not safe.
         if len(param) == 0:
             raise ValueError("The " + query_param_name + " query parameter was empty. Value: " + param)
@@ -33,6 +35,7 @@ class TickerRequestClient:
         return response
 
     def make_ticker_info_rest_request(self, ticker, start_date, end_date):
+        ## Another possible todo here
         # move API key to environment variable in lambda
         params = {'apiKey': 'NsSybiyV7LfRsy0CtMI9IcyRN2Dfkl54'}
         url = self.urlBase + "/aggs/ticker/" + ticker + "/range/1/day/" + start_date + "/" + end_date
