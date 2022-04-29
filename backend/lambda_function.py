@@ -23,6 +23,7 @@ def lambda_handler(event, context):
     ticker_results = ticker_client.get_ticker_info(event)
     if ticker_results.json()['status'] == "ERROR":
         return respond(ticker_results.status_code, ticker_results.text)
+    # TODO test
     # TODO handle non existent ticker ie ATLA
     # TODO handle wrong headers
     results = ticker_results.json()['results']
